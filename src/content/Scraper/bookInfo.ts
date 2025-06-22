@@ -1,5 +1,5 @@
 import { objectEntries, objectFromEntries } from "../../utils/collections";
-import type { BookInfo } from "../BookInfo/types";
+import type { BookInfo } from "../BookInfoPopup/types";
 
 type BookInfoExtractors = {
   [K in keyof BookInfo]: () => BookInfo[K];

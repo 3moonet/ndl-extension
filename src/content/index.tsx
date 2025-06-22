@@ -1,7 +1,7 @@
 import { createRoot } from "react-dom/client";
 import { scrapeBookInfo } from "./Scraper/bookInfo";
 import ExtensionBase from "./ExtensionBase";
-import BookInfoPopup from "./BookInfo";
+import BookInfoPopup from "./BookInfoPopup";
 
 // Reactコンポーネントをページに挿入
 function insertReactApp() {
