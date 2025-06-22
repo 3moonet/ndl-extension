@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
-import BookInfoApp from "./BookInfo";
+import BookInfo from "./BookInfo";
+import { scrapeBookInfo } from "./Scraper/bookInfo";
 
 // Reactコンポーネントをページに挿入
 function insertReactApp() {
@@ -9,14 +10,17 @@ function insertReactApp() {
     existingElement.remove();
   }
 
+  // 書誌情報を取得
+  const bookInfo = scrapeBookInfo();
+
   // React用のコンテナを作成
   const container = document.createElement("div");
   container.id = "ndl-react-root";
   document.body.appendChild(container);
 
-  // Reactコンポーネントをレンダリング
+  // Reactコンポーネントをレンダリング（propsで書誌情報を渡す）
   const root = createRoot(container);
-  root.render(<BookInfoApp />);
+  root.render(<BookInfo bookInfo={bookInfo} />);
 }
 
 // ページ読み込み完了後に実行

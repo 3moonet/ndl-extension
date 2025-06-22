@@ -1,6 +1,12 @@
 import React from "react";
+import type { BookInfo as BookInfoType } from "./types";
+import { formatBookInfo } from "./format";
 
-const BookInfo: React.FC = () => {
+interface BookInfoProps {
+  bookInfo: BookInfoType;
+}
+
+const BookInfo: React.FC<BookInfoProps> = ({ bookInfo }) => {
   return (
     <div
       style={{
@@ -14,9 +20,10 @@ const BookInfo: React.FC = () => {
         top: "10px",
         right: "10px",
         zIndex: 10000,
+        maxWidth: "300px",
       }}
     >
-      NDL拡張機能が動作しています！（React版）
+      <div>{formatBookInfo(bookInfo)}</div>
     </div>
   );
 };
