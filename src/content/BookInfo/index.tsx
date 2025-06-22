@@ -1,21 +1,15 @@
 import React from "react";
-import type { BookInfo as BookInfoType } from "./types";
-import { formatBookInfo } from "./format";
+import type { BookInfo } from "./types";
+import { BookInfoPanel } from "./BookInfoPanel";
 
-interface BookInfoProps {
-  bookInfo: BookInfoType;
+interface BookInfoPopupProps {
+  bookInfo: BookInfo;
 }
 
-const BookInfo: React.FC<BookInfoProps> = ({ bookInfo }) => {
+const BookInfoPopup: React.FC<BookInfoPopupProps> = ({ bookInfo }) => {
   return (
     <div
       style={{
-        background: "#007bff",
-        color: "white",
-        padding: "10px",
-        margin: "10px",
-        borderRadius: "5px",
-        fontFamily: "Arial, sans-serif",
         position: "fixed",
         top: "10px",
         right: "10px",
@@ -23,9 +17,9 @@ const BookInfo: React.FC<BookInfoProps> = ({ bookInfo }) => {
         maxWidth: "300px",
       }}
     >
-      <div>{formatBookInfo(bookInfo)}</div>
+      <BookInfoPanel bookInfo={bookInfo} />
     </div>
   );
 };
 
-export default BookInfo;
+export default BookInfoPopup;

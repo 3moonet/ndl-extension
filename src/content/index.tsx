@@ -1,6 +1,7 @@
 import { createRoot } from "react-dom/client";
-import BookInfo from "./BookInfo";
 import { scrapeBookInfo } from "./Scraper/bookInfo";
+import ExtensionBase from "./ExtensionBase";
+import BookInfoPopup from "./BookInfo";
 
 // Reactコンポーネントをページに挿入
 function insertReactApp() {
@@ -20,7 +21,11 @@ function insertReactApp() {
 
   // Reactコンポーネントをレンダリング（propsで書誌情報を渡す）
   const root = createRoot(container);
-  root.render(<BookInfo bookInfo={bookInfo} />);
+  root.render(
+    <ExtensionBase>
+      <BookInfoPopup bookInfo={bookInfo} />
+    </ExtensionBase>
+  );
 }
 
 // ページ読み込み完了後に実行
