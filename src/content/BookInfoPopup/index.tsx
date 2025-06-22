@@ -1,6 +1,7 @@
 import React from "react";
 import type { BookInfo } from "./types";
 import BookInfoPanel from "./Panel";
+import styles from "./index.module.css";
 
 interface BookInfoPopupProps {
   bookInfo: BookInfo;
@@ -8,15 +9,7 @@ interface BookInfoPopupProps {
 
 const BookInfoPopup: React.FC<BookInfoPopupProps> = ({ bookInfo }) => {
   return (
-    <div
-      style={{
-        position: "fixed",
-        top: "10px",
-        right: "10px",
-        zIndex: 10000,
-        maxWidth: "300px",
-      }}
-    >
+    <div className={styles.popup}>
       <BookInfoPanel bookInfo={bookInfo} />
     </div>
   );
