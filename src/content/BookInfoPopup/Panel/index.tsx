@@ -1,23 +1,24 @@
 import React from "react";
-import type { BookInfo } from "./types";
-import { BookInfoContent } from "./BookInfoContent";
+import type { BookInfo } from "../types";
+import Bibliography from "./Bibliography";
 
 interface BookInfoPanelProps {
   bookInfo: BookInfo;
 }
 
-export const BookInfoPanel: React.FC<BookInfoPanelProps> = ({ bookInfo }) => {
+const BookInfoPanel: React.FC<BookInfoPanelProps> = ({ bookInfo }) => {
   return (
     <div
       style={{
         background: "#007bff",
-        color: "white",
         padding: "10px",
         margin: "10px",
         borderRadius: "5px",
       }}
     >
-      <BookInfoContent bookInfo={bookInfo} />
+      <Bibliography bookInfo={bookInfo} />
     </div>
   );
 };
+
+export default BookInfoPanel;

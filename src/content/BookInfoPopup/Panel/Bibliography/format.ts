@@ -1,4 +1,4 @@
-import type { BookInfo } from "./types";
+import type { BookInfo } from "../../types";
 
 export const formatBookInfo = ({
   authors,

@@ -1,6 +1,6 @@
 import React from "react";
 import type { BookInfo } from "./types";
-import { BookInfoPanel } from "./BookInfoPanel";
+import BookInfoPanel from "./Panel";
 
 interface BookInfoPopupProps {
   bookInfo: BookInfo;
