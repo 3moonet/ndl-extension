@@ -1,54 +1,68 @@
-# React + TypeScript + Vite
+# NDL Extension
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+国立国会図書館（NDL）の書籍検索ページ用の Chrome 拡張機能です。
 
-Currently, two official plugins are available:
+## 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+この拡張機能は、[国立国会図書館サーチ](https://ndlsearch.ndl.go.jp/)の書籍詳細ページで、書誌情報を自動的に取得し、便利なポップアップで表示します。
 
-## Expanding the ESLint configuration
+## 機能
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **自動書誌情報取得**: ページから書誌情報を自動的に抽出
+- **ポップアップ表示**: 取得した情報を見やすい形式で表示
+- **参考文献形式**: 書誌情報を参考文献形式で表示
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 対応ページ
+
+- `https://ndlsearch.ndl.go.jp/books/*`
+
+## 技術スタック
+
+- **フレームワーク**: React 19 + TypeScript
+- **ビルドツール**: Vite
+- **拡張機能**: Chrome Extension Manifest V3
+- **スタイリング**: CSS Modules
+
+## 開発環境のセットアップ
+
+### 前提条件
+
+- Node.js 18 以上
+- npm または yarn
+
+### インストール
+
+```bash
+# 依存関係をインストール
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 開発サーバーの起動
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+# 開発モードで起動
+npm run dev
 ```
+
+### ビルド
+
+```bash
+# 本番用ビルド
+npm run build
+```
+
+### リント
+
+```bash
+# ESLintでコードチェック
+npm run lint
+```
+
+## 開発者向け情報
+
+### 拡張機能のインストール
+
+1. `npm run build`でビルド
+2. Chrome 拡張機能の管理ページ（`chrome://extensions/`）を開く
+3. 「デベロッパーモード」を有効化
+4. 「パッケージ化されていない拡張機能を読み込む」で`dist`フォルダを選択
