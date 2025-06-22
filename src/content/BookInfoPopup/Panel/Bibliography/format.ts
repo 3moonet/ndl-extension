@@ -20,5 +20,5 @@ export const formatBookInfo = ({
 };
 
 const formatSeriesTitle = (series_title: string): string => {
-  return series_title ? `（東洋文庫293${series_title}），` : "";
+  return series_title ? `（${series_title}），` : "";
 };
